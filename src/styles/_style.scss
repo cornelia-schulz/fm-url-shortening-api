@@ -1,0 +1,39 @@
+
+nav {
+  display: flex;
+  justify-content: space-between
+}
+
+.navigation {
+  align-items: center;
+  display: flex;
+}
+
+.navigation li {
+  list-style-type: none;
+  padding: 1rem;
+}
+
+.navigation li a {
+  color: hsl(0, 0%, 75%);
+  text-decoration: none;
+}
+
+.navigation li a:active {
+  color: #111;
+  font-size: 1.5rem;
+}
+
+.login {
+  display: flex;
+}
+
+.login li {
+  list-style-type: none;
+  padding: 1rem;
+}
+
+.login li a {
+  color: hsl(0, 0%, 75%);
+  text-decoration: none;
+}
