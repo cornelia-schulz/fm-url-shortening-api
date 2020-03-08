@@ -1,3 +1,16 @@
+$cyan: hsl(180, 66%, 49%);
+$darkViolet: hsl(257, 27%, 26%);
+$red: hsl(0, 87%, 67%);
+$grey: hsl(0, 0%, 75%);
+$greyishViolet: hsl(257, 7%, 63%);
+$veryDarkBlue: hsl(255, 11%, 22%);
+$veryDarkViolet: hsl(260, 8%, 14%);
+$black: #111;
+$white: #fff;
+
+body, html {
+  font-family: 'Poppins', sans-serif;
+}
 
 nav {
   display: flex;
@@ -15,12 +28,12 @@ nav {
 }
 
 .navigation li a {
-  color: hsl(0, 0%, 75%);
+  color: $grey;
   text-decoration: none;
 }
 
 .navigation li a:active {
-  color: #111;
+  color: $black;
   font-size: 1.5rem;
 }
 
@@ -34,6 +47,6 @@ nav {
 }
 
 .login li a {
-  color: hsl(0, 0%, 75%);
+  color: $grey;
   text-decoration: none;
 }
