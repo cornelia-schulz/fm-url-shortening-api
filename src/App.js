@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/reset.css';
-import './App.css';
+import './App.scss';
 import Nav from './Components/Nav';
 import Blurb from './Components/Blurb';
 import Search from './Components/Search';
