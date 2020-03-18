@@ -1,5 +1,9 @@
 import React from 'react';
-import { ReactComponent as Logo } from '../logo.svg';
+import { ReactComponent as Logo } from '../assets/logo.svg';
+import { ReactComponent as Facebook } from '../assets/icon-facebook.svg';
+import { ReactComponent as Twitter } from '../assets/icon-twitter.svg';
+import { ReactComponent as Pinterest } from '../assets/icon-pinterest.svg';
+import { ReactComponent as Instagram } from '../assets/icon-instagram.svg';
 
 function Footer() {
   return (
@@ -36,16 +40,16 @@ function Footer() {
       </div>
       <div className="footer-social">
         <a href="/">
-          <img alt="facebook" src="/images/icon-facebook.svg" />
+          <Facebook className="social-icon" />
         </a>
         <a href="/">
-          <img alt="twitter" src="/images/icon-twitter.svg" />
+          <Twitter className="social-icon" />
         </a>
         <a href="/">
-          <img alt="pinterest" src="/images/icon-pinterest.svg" />
+          <Pinterest className="social-icon" />
         </a>
        <a href="/">
-         <img alt="instagram" src="/images/icon-instagram.svg" />
+         <Instagram className="social-icon" />
        </a>
       </div>
     </footer>
