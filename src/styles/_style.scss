@@ -3,6 +3,7 @@ $cyan: hsl(180, 66%, 49%);
 $dark-violet: hsl(257, 27%, 26%);
 $red: hsl(0, 87%, 67%);
 $grey: hsl(0, 0%, 75%);
+$grey-background: hsl(230, 25%, 95%);
 $greyish-violet: hsl(257, 7%, 63%);
 $very-sark-blue: hsl(255, 11%, 22%);
 $very-dark-violet: hsl(260, 8%, 14%);
@@ -31,6 +32,10 @@ h2 {
   font-size: 1.8em;
 }
 
+h3 {
+  font-size: 1.2em;
+}
+
 button {
   background-color: $cyan;
   border: none;
@@ -55,6 +60,8 @@ button {
 }
 
 .container {
+  margin: 0 auto;
+  max-width: 1440px;
   padding: 2rem 5rem;
 }
 
@@ -73,14 +80,14 @@ nav {
   padding: 1rem;
 }
 
-.navigation li a {
+.nav a {
   color: $grey;
   text-decoration: none;
 }
 
-.navigation li a:active {
+.nav a:active,
+.nav a:hover {
   color: $black;
-  font-size: 1.5rem;
 }
 
 .login {
@@ -92,9 +99,75 @@ nav {
   padding: 1rem;
 }
 
-.login li a {
-  color: $grey;
-  text-decoration: none;
+// .login li a {
+//   color: $grey;
+//   text-decoration: none;
+// }
+
+.statistics {
+  background-color: $grey-background;
+  position: relative;
+}
+
+.blue-divider {
+  background-color: $cyan;
+  height: 0.5rem;
+  left: 20%;
+  position: absolute;
+  top: 66%;
+  width: 50%;
+}
+
+.statistics-intro {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+
+  p {
+    color: $grey;
+    line-height: 1.8rem;
+  }
+}
+
+.selling-points {
+  align-items: flex-start;
+  display: flex;
+  margin-top: 4rem;
+}
+
+.selling-point {
+  background-color: $white;
+  flex: 1 30%;
+  margin: 1rem;
+  padding: 1rem;
+  z-index: 2;
+
+  p {
+    color: $grey;
+    line-height: 1.5rem;
+  }
+
+  &:nth-child(2) {
+    margin-top: 60px;
+  }
+
+  &:last-child {
+    margin-top: 102px;
+  }
+}
+
+.statistics-icon-container {
+  background-color: $dark-violet;
+  border-radius: 50px;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  margin-top: -60px;
+  width: 80px;
+
+  img {
+    align-self: center;
+  }
 }
 
 .links {
@@ -161,16 +234,50 @@ nav {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .container {
-    padding: 2rem 2rem;
+    padding: 1.5rem 2rem;
   }
-  
+
+  .statistics-intro {
+    width: 100%;
+  }
+
+  .selling-points {
+    flex-wrap: wrap;
+  }
+
+  .selling-point {
+    flex: 1 100%;
+
+    &:last-child {
+      margin-top: 60px;
+    }
+  }
+
+  .statistics-icon-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blue-divider {
+    height: 50%;
+    left: 49%;
+    top: 40%;
+    width: 0.5rem;
+  }
+
   .footer {
     justify-content: center;
   }
 
+  .footer-logo {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
   .footer-links {
+    flex-basis: 100%;
     justify-content: center;
     margin-bottom: 2rem;
     margin-top: 1rem;
@@ -178,5 +285,15 @@ nav {
 
   .footer-link-list-wrapper {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  h2 {
+    font-size: 1.2em;
+  }
+
+  .footer-link-list-wrapper {
+    flex-basis: 100%;
   }
 }

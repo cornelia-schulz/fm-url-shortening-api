@@ -1,28 +1,33 @@
 import React from 'react';
+import { ReactComponent as Logo } from '../assets/logo.svg';
 
 function Nav() {
   return (
     <nav className="nav container">
       <ul className="navigation">
         <li>
-          <a href="#">Shortly</a>
+          <a href="/">
+            <Logo />
+          </a>
         </li>
-        <li>
-          <a href="#">Features</a>
+        <li className="nav">
+          <a href="/">Features</a>
         </li>
-        <li>
-          <a href="#">Pricing</a>
+        <li className="nav">
+          <a href="/">Pricing</a>
         </li>
-        <li>
-          <a href="#">Resources</a>
+        <li className="nav">
+          <a href="/">Resources</a>
         </li>
       </ul>
       <ul className="login">
-        <li>
+        <li className="nav">
           <a href="login">Login</a>
         </li>
         <li>
-          <a href="signup">Sign Up</a>
+          <button className="btn-rounded">
+            <a href="signup">Sign Up</a>
+          </button>
         </li>
       </ul>
     </nav>
