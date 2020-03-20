@@ -28,6 +28,11 @@ h1, h2, h3, h4 {
   padding: 1.2rem 0;
 }
 
+h1 {
+  font-size: 4em;
+  line-height: 4.6rem;
+}
+
 h2 {
   font-size: 1.8em;
 }
@@ -92,11 +97,30 @@ nav {
 
 .login {
   display: flex;
+  align-items: center;
 }
 
 .login li {
   list-style-type: none;
   padding: 1rem;
+}
+
+.blurb {
+  background-image: url('/images/illustration-working.svg');
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-bottom: 6rem;
+}
+
+.blurb-wrapper {
+  width: 50%;
+
+  p {
+    color: $grey;
+    line-height: 1.8rem;
+    margin-bottom: 1.8rem;
+    width: 80%;
+  }
 }
 
 .statistics {
