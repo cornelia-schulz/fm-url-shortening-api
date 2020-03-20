@@ -70,12 +70,12 @@ nav {
   justify-content: space-between;
 }
 
-.navigation {
+.navigation-list {
   align-items: center;
   display: flex;
 }
 
-.navigation li {
+.navigation-list li {
   list-style-type: none;
   padding: 1rem;
 }
@@ -98,11 +98,6 @@ nav {
   list-style-type: none;
   padding: 1rem;
 }
-
-// .login li a {
-//   color: $grey;
-//   text-decoration: none;
-// }
 
 .statistics {
   background-color: $grey-background;

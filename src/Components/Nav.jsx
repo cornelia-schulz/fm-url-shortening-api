@@ -3,8 +3,8 @@ import { ReactComponent as Logo } from '../assets/logo.svg';
 
 function Nav() {
   return (
-    <nav className="nav container">
-      <ul className="navigation">
+    <nav className="navigation container">
+      <ul className="navigation-list">
         <li>
           <a href="/">
             <Logo />
@@ -26,7 +26,7 @@ function Nav() {
         </li>
         <li>
           <button className="btn-rounded">
-            <a href="signup">Sign Up</a>
+            Sign Up
           </button>
         </li>
       </ul>
