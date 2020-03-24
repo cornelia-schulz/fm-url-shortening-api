@@ -3,7 +3,6 @@ import './styles/reset.css';
 import './App.scss';
 import Nav from './Components/Nav';
 import Blurb from './Components/Blurb';
-import Search from './Components/Search';
 import Statistics from './Components/Statistics';
 import Links from './Components/Links';
 import Footer from './Components/Footer';
@@ -13,7 +12,6 @@ function App() {
     <div className="App">
       <Nav />
       <Blurb />
-      <Search />
       <Statistics />
       <Links />
       <Footer />

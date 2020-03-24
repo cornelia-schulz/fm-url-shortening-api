@@ -1,8 +1,10 @@
 import React from 'react';
+import Search from './Search';
 
 function Statistics() {
   return (
     <div className="statistics container">
+      <Search />
       <div className="blue-divider"></div>
       <div className="statistics-intro">
         <h2>Advanced Statistics</h2>
