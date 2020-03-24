@@ -10,10 +10,11 @@ $very-dark-violet: hsl(260, 8%, 14%);
 $black: #111;
 $white: #fff;
 
-html, body, #root, .App {
+html, body {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   height: 100%;
+  width: 100%;
 }
 
 html {
@@ -81,6 +82,11 @@ button {
     svg {
       color: $grey;
     }
+}
+
+.navigation-desktop {
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-menu-bar {
@@ -182,6 +188,14 @@ button {
   }
 }
 
+.picture-wrapper {
+  margin-right: -5rem;
+
+    & img {
+      width: 100%;
+    }
+  }
+
 .search {
   background-color: $dark-violet;
   background-image: url('/images/bg-boost-desktop.svg');
@@ -206,7 +220,7 @@ button {
 
 .search-container {
   margin: 0 auto;
-  padding: 2rem 5rem;
+  padding: 2rem 0;
 }
 
 .statistics {
