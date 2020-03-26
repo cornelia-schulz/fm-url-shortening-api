@@ -1,19 +1,88 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-function Search() {
-  return (
-    <div className="search-container">
-      <div className="search">
-        <input
-          name="shorten-link"
-          placeholder="Shorten a link here"
-          type="text"
-        />
-        <button>Shorten it!</button>
+class Search extends Component {
+  constructor(props){
+    super(props)
+  
+    this.state = {
+      currentLink: {},
+      links: []
+    }
+    this.handleClick = this.handleClick.bind(this);
+    this.shortenLink = this.shortenLink.bind(this);
+    this.validateInput = this.validateInput.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    const inputValue = document.getElementById("shortenLink").value;
+    const result = this.validateInput(inputValue);
+    if (result === "ok") {
+      this.shortenLink('https://news.ycombinator.com/');
+    }
+    else {
+      document.getElementsByClassName('search-error')[0].innerHTML = '<span>' + result +'</span>';
+    }
+  }
+
+  shortenLink(input) {
+    axios.post('https://rel.ink/api/links/', {
+      url: input
+    })
+    .then(response => {
+      const link = {
+        longLink: input,
+        shortLink: `https://rel.ink/${response.data.hashid}`
+      }
+      this.setState(state => ({
+        links: state.links.push(link)
+      }));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+
+  validateInput(input) {
+    document.getElementById('shortenLink').classList.remove('redborder');
+    document.getElementsByClassName('search-error')[0].innerHTML = '<span></span>';
+    if (input.trim().length === 0) {
+      document.getElementById('shortenLink').classList.add('redborder');
+      return "Please add a link";
+    }
+    else return "ok";
+  }
+
+  render() {
+    return (
+      <div className="search-container">
+        <form className="search">
+          <div className="search-input">
+          <input
+            id="shortenLink"
+            name="shorten-link"
+            placeholder="Shorten a link here"
+            type="text"
+          />
+          <span className="search-error"></span>
+          </div>
+          <button onClick={this.handleClick} type="submit">Shorten it!</button>
+        </form>
+        { this.state.links.length > 0 && 
+          <ul className="links">
+            {this.state.links.map(link =>(
+              <li key={link.shortLink}>
+                <span>{link.longLink}</span>
+                <span>{link.longLink}</span>
+                <button>Copy</button>
+              </li>
+            ))}
+          </ul>
+        }
       </div>
-      
-    </div>
-  )
+    )
+  }
 }
 
 export default Search;

@@ -15,7 +15,6 @@ function Nav() {
   function handleClick(e) {
     e.preventDefault();
     document.getElementById('dropdowns').classList.toggle('hidden');
-    console.log('The link was clicked.');
   }
 
   return (
