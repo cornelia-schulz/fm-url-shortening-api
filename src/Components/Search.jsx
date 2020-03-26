@@ -6,7 +6,6 @@ class Search extends Component {
     super(props)
   
     this.state = {
-      currentLink: {},
       links: []
     }
     this.handleClick = this.handleClick.bind(this);
@@ -35,8 +34,10 @@ class Search extends Component {
         longLink: input,
         shortLink: `https://rel.ink/${response.data.hashid}`
       }
+      let links = this.state.links;
+      links.push(link)
       this.setState(state => ({
-        links: state.links.push(link)
+        links: links
       }));
     })
     .catch(error => {
@@ -70,12 +71,12 @@ class Search extends Component {
           <button onClick={this.handleClick} type="submit">Shorten it!</button>
         </form>
         { this.state.links.length > 0 && 
-          <ul className="links">
+          <ul className="generated-links">
             {this.state.links.map(link =>(
               <li key={link.shortLink}>
-                <span>{link.longLink}</span>
-                <span>{link.longLink}</span>
-                <button>Copy</button>
+                <span className="longLink">{link.longLink}</span>
+                <span className="shortLink">{link.shortLink}</span>
+                <button className="copyLinkBtn">Copy</button>
               </li>
             ))}
           </ul>
