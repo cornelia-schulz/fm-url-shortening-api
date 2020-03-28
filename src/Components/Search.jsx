@@ -13,6 +13,13 @@ class Search extends Component {
     this.validateInput = this.validateInput.bind(this);
   }
 
+  componentDidMount() {
+      const links = JSON.parse(localStorage.getItem('localStorageLinks') || "[]");
+      this.setState(() => ({
+        links: links
+      }));
+  }
+
   handleClick(e) {
     e.preventDefault();
     const inputValue = document.getElementById("shortenLink").value;
@@ -39,6 +46,8 @@ class Search extends Component {
       this.setState(state => ({
         links: links
       }));
+      localStorage.setItem('localStorageLinks', JSON.stringify(this.state.links));
+      console.log('storing: ', JSON.stringify(this.state.links))
     })
     .catch(error => {
       console.error(error);
