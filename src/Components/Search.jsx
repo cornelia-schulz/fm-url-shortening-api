@@ -45,7 +45,7 @@ class Search extends Component {
     const inputValue = document.getElementById("shortenLink").value;
     const result = this.validateInput(inputValue);
     if (result === "ok") {
-      this.shortenLink('https://news.ycombinator.com/');
+      this.shortenLink(inputValue);
     }
     else {
       document.getElementsByClassName('search-error')[0].innerHTML = '<span>' + result +'</span>';
