@@ -6,8 +6,11 @@ class Search extends Component {
     super(props)
   
     this.state = {
-      links: []
+      links: [],
+      copyText: 'Copy',
+      clickedCopyText: 'Copied!'
     }
+    this.copyToClipBoard = this.copyToClipBoard.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.shortenLink = this.shortenLink.bind(this);
     this.validateInput = this.validateInput.bind(this);
@@ -18,6 +21,23 @@ class Search extends Component {
       this.setState(() => ({
         links: links
       }));
+  }
+
+  copyToClipBoard(link, id) {
+    const buttons = document.getElementsByClassName('copyLinkBtn');
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove('violet');
+      buttons[i].value = 'Copy'
+    }
+    let linkText = document.createElement('input');
+    document.body.appendChild(linkText);
+    linkText.setAttribute('value', link);
+    linkText.select();
+    document.execCommand('copy');
+    document.body.removeChild(linkText);
+    const button = document.getElementsByClassName('copyLinkBtn')[Number(id)];
+    button.classList.add('violet');
+    button.value = 'Copied!';
   }
 
   handleClick(e) {
@@ -38,6 +58,7 @@ class Search extends Component {
     })
     .then(response => {
       const link = {
+        id: this.state.links.length,
         longLink: input,
         shortLink: `https://rel.ink/${response.data.hashid}`
       }
@@ -47,7 +68,6 @@ class Search extends Component {
         links: links
       }));
       localStorage.setItem('localStorageLinks', JSON.stringify(this.state.links));
-      console.log('storing: ', JSON.stringify(this.state.links))
     })
     .catch(error => {
       console.error(error);
@@ -82,10 +102,15 @@ class Search extends Component {
         { this.state.links.length > 0 && 
           <ul className="generated-links">
             {this.state.links.map(link =>(
-              <li key={link.shortLink}>
+              <li key={link.id}>
                 <span className="longLink">{link.longLink}</span>
                 <span className="shortLink">{link.shortLink}</span>
-                <button className="copyLinkBtn">Copy</button>
+                <button
+                  className="copyLinkBtn"
+                  onClick={() => this.copyToClipBoard(link.shortLink, link.id)}
+                >
+                  { this.state.copyText }
+                </button>
               </li>
             ))}
           </ul>

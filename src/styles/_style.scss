@@ -5,7 +5,7 @@ $red: hsl(0, 87%, 67%);
 $grey: hsl(0, 0%, 75%);
 $grey-background: hsl(230, 25%, 95%);
 $greyish-violet: hsl(257, 7%, 63%);
-$very-sark-blue: hsl(255, 11%, 22%);
+$very-dark-blue: hsl(255, 11%, 22%);
 $very-dark-violet: hsl(260, 8%, 14%);
 $black: #111;
 $white: #fff;
@@ -265,6 +265,10 @@ button {
   }
 }
 
+.violet {
+  background-color: $dark-violet !important;
+}
+
 .longLink {
   color: $black;
   flex-grow: 1;
@@ -464,6 +468,23 @@ button {
     }
     button {
       width: 100%;
+    }
+  }
+
+  .generated-links {
+    li {
+      flex-wrap: wrap;
+
+      span {
+        &:first-child {
+          border-bottom: 1px solid $grey;
+        }
+      }
+    }
+    
+    .longLink, .shortLink, .copyLinkBtn {
+      flex-basis: 100%;
+      line-height: 2.5rem;
     }
   }
 
