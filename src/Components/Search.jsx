@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './Button';
 import axios from 'axios';
 
 class Search extends Component {
@@ -6,11 +7,8 @@ class Search extends Component {
     super(props)
   
     this.state = {
-      links: [],
-      copyText: 'Copy',
-      clickedCopyText: 'Copied!'
+      links: []
     }
-    this.copyToClipBoard = this.copyToClipBoard.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.shortenLink = this.shortenLink.bind(this);
     this.validateInput = this.validateInput.bind(this);
@@ -21,23 +19,6 @@ class Search extends Component {
       this.setState(() => ({
         links: links
       }));
-  }
-
-  copyToClipBoard(link, id) {
-    const buttons = document.getElementsByClassName('copyLinkBtn');
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[i].classList.remove('violet');
-      buttons[i].value = 'Copy'
-    }
-    let linkText = document.createElement('input');
-    document.body.appendChild(linkText);
-    linkText.setAttribute('value', link);
-    linkText.select();
-    document.execCommand('copy');
-    document.body.removeChild(linkText);
-    const button = document.getElementsByClassName('copyLinkBtn')[Number(id)];
-    button.classList.add('violet');
-    button.value = 'Copied!';
   }
 
   handleClick(e) {
@@ -105,12 +86,7 @@ class Search extends Component {
               <li key={link.id}>
                 <span className="longLink">{link.longLink}</span>
                 <span className="shortLink">{link.shortLink}</span>
-                <button
-                  className="copyLinkBtn"
-                  onClick={() => this.copyToClipBoard(link.shortLink, link.id)}
-                >
-                  { this.state.copyText }
-                </button>
+                <Button link={link.shortLink} id={link.id} onClick={() => this.copyToClipBoard(link.shortLink, link.id)} />
               </li>
             ))}
           </ul>

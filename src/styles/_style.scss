@@ -53,6 +53,7 @@ button {
   font-weight: 700;
   line-height: 2rem;
   padding: 0 1.5rem;
+  white-space: nowrap;
 
   &:hover, &:active {
     background-color: $light-cyan;
@@ -408,6 +409,16 @@ button {
     &:hover {
       fill: $cyan;
     }
+  }
+}
+
+@media screen and (max-width: 909px) {
+  .container {
+    padding: 2rem 3rem;
+  }
+
+  .blurb-wrapper {
+    width: 70%;
   }
 }
 
