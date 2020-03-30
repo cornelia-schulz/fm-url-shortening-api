@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './styles/reset.css';
 import './App.scss';
 import Nav from './Components/Nav';
@@ -9,13 +10,15 @@ import Footer from './Components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Nav />
-      <Blurb />
-      <Statistics />
-      <Links />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Route path='/' render={() => <Nav />} />
+        <Route path='/' render={() => <Blurb />} />
+        <Route path='/' render={() => <Statistics />} />
+        <Route path='/' render={() => <Links />} />
+        <Route path='/' render={() => <Footer />} />
+      </div>
+    </BrowserRouter>
   );
 }
 

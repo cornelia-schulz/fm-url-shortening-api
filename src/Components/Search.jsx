@@ -71,6 +71,7 @@ class Search extends Component {
         <form className="search">
           <div className="search-input">
           <input
+            aria-label="Enter a link to shorten"
             id="shortenLink"
             name="shorten-link"
             placeholder="Shorten a link here"

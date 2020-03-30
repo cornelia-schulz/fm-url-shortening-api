@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -22,23 +23,23 @@ function Nav() {
       <div className="navigation-desktop">
         <ul className="navigation-list">
           <li>
-            <a href="/">
+            <Link to="/">
               <Logo />
-            </a>
+            </Link>
           </li>
           <li className="nav">
-            <a href="/">Features</a>
+            <Link to="/">Features</Link>
           </li>
           <li className="nav">
-            <a href="/">Pricing</a>
+            <Link to="/">Pricing</Link>
           </li>
           <li className="nav">
-            <a href="/">Resources</a>
+            <Link to="/">Resources</Link>
           </li>
         </ul>
         <ul className="login">
           <li className="nav">
-            <a href="login">Login</a>
+            <Link to="/">Login</Link>
           </li>
           <li>
             <button className="btn-rounded">
@@ -49,9 +50,9 @@ function Nav() {
       </div>
       <div className="navigation-mobile" role="menu">
         <div className="nav-menu-bar">
-          <a href="/">
+          <Link to="/">
             <Logo />
-          </a>
+          </Link>
           <FontAwesomeIcon
             className="menu-icon"
             icon={faBars}
@@ -62,13 +63,13 @@ function Nav() {
         <div className="hidden" id="dropdowns">
           <ul className="mobile-navigation-list">
             <li className="nav">
-              <a href="/">Features</a>
+              <Link to="/">Features</Link>
             </li>
             <li className="nav">
-              <a href="/">Pricing</a>
+              <Link to="/">Pricing</Link>
             </li>
             <li className="nav">
-              <a href="/">Resources</a>
+              <Link to="/">Resources</Link>
             </li>
           </ul>
           <ul className="mobile-login">
