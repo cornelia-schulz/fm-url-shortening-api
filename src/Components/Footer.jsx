@@ -40,15 +40,19 @@ function Footer() {
       </div>
       <div className="footer-social">
         <a href="/">
+          <span class="sr-only">Link to Facebook</span>
           <Facebook className="social-icon" />
         </a>
         <a href="/">
+          <span class="sr-only">Link to Twitter</span>
           <Twitter className="social-icon" />
         </a>
         <a href="/">
+          <span class="sr-only">Link to Pinterest</span>
           <Pinterest className="social-icon" />
         </a>
        <a href="/">
+         <span class="sr-only">Link to Instagram</span>
          <Instagram className="social-icon" />
        </a>
       </div>

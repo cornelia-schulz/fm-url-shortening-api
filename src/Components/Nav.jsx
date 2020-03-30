@@ -24,6 +24,7 @@ function Nav() {
         <ul className="navigation-list">
           <li>
             <Link to="/">
+              <span class="sr-only">Link to Homepage</span>
               <Logo />
             </Link>
           </li>
