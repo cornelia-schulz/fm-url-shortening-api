@@ -52,6 +52,7 @@ function Nav() {
       <div className="navigation-mobile" role="menu">
         <div className="nav-menu-bar">
           <Link to="/">
+            <span class="sr-only">Link to Homepage</span>
             <Logo />
           </Link>
           <FontAwesomeIcon
