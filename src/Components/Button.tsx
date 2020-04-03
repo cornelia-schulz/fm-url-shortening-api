@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 
-class Button extends Component {
-  constructor(props) {
+interface iProps {
+  link: string;
+  id: number;
+}
+
+interface iState {
+  buttonText: string;
+  clicked: boolean;
+}
+
+class Button extends Component<iProps, iState> {
+  constructor(props:iProps) {
     super(props)
     this.state = {
       buttonText: 'Copy',
@@ -15,7 +25,6 @@ class Button extends Component {
     const buttons = document.getElementsByClassName('copyLinkBtn');
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].classList.remove('violet');
-      buttons[i].value = 'Copy'
     }
 
     let linkText = document.createElement('input');

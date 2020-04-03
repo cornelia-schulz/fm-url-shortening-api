@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -12,10 +12,14 @@ library.add(
   faBars
 )
 
-function Nav() {
-  function handleClick(e) {
+const Nav: FunctionComponent = () => {
+
+  function handleClick(e: React.MouseEvent) {
     e.preventDefault();
-    document.getElementById('dropdowns').classList.toggle('hidden');
+    const menu = document.getElementById('dropdowns');
+    if (menu) {
+      menu.classList.toggle('hidden');
+    }
   }
 
   return (
@@ -24,7 +28,7 @@ function Nav() {
         <ul className="navigation-list">
           <li>
             <Link to="/">
-              <span class="sr-only">Link to Homepage</span>
+              <span className="sr-only">Link to Homepage</span>
               <Logo />
             </Link>
           </li>
@@ -52,7 +56,7 @@ function Nav() {
       <div className="navigation-mobile" role="menu">
         <div className="nav-menu-bar">
           <Link to="/">
-            <span class="sr-only">Link to Homepage</span>
+            <span className="sr-only">Link to Homepage</span>
             <Logo />
           </Link>
           <FontAwesomeIcon
