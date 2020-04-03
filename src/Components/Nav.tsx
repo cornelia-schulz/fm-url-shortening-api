@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -27,24 +26,24 @@ const Nav: FunctionComponent = () => {
       <div className="navigation-desktop">
         <ul className="navigation-list">
           <li>
-            <Link to="/">
+            <a href="/">
               <span className="sr-only">Link to Homepage</span>
               <Logo />
-            </Link>
+            </a>
           </li>
           <li className="nav">
-            <Link to="/">Features</Link>
+            <a href="/">Features</a>
           </li>
           <li className="nav">
-            <Link to="/">Pricing</Link>
+            <a href="/">Pricing</a>
           </li>
           <li className="nav">
-            <Link to="/">Resources</Link>
+            <a href="/">Resources</a>
           </li>
         </ul>
         <ul className="login">
           <li className="nav">
-            <Link to="/">Login</Link>
+            <a href="/">Login</a>
           </li>
           <li>
             <button className="btn-rounded">
@@ -55,10 +54,10 @@ const Nav: FunctionComponent = () => {
       </div>
       <div className="navigation-mobile" role="menu">
         <div className="nav-menu-bar">
-          <Link to="/">
+          <a href="/">
             <span className="sr-only">Link to Homepage</span>
             <Logo />
-          </Link>
+          </a>
           <FontAwesomeIcon
             className="menu-icon"
             icon={faBars}
@@ -69,13 +68,13 @@ const Nav: FunctionComponent = () => {
         <div className="hidden" id="dropdowns">
           <ul className="mobile-navigation-list">
             <li className="nav">
-              <Link to="/">Features</Link>
+              <a href="/">Features</a>
             </li>
             <li className="nav">
-              <Link to="/">Pricing</Link>
+              <a href="/">Pricing</a>
             </li>
             <li className="nav">
-              <Link to="/">Resources</Link>
+              <a href="/">Resources</a>
             </li>
           </ul>
           <ul className="mobile-login">
