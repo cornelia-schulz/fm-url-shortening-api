@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import Button from './Button';
 import axios from 'axios';
 
-class Search extends Component {
-  constructor(props){
+interface iProps {
+
+}
+interface iLink{
+  id: number,
+  shortLink: string,
+  longLink: string
+}
+interface iState {
+  links: iLink[];
+}
+
+class Search extends Component<iProps, iState> {
+  constructor(props: iProps){
     super(props)
   
     this.state = {
@@ -21,19 +33,20 @@ class Search extends Component {
       }));
   }
 
-  handleClick(e) {
+  handleClick(e: React.MouseEvent) {
     e.preventDefault();
-    const inputValue = document.getElementById("shortenLink").value;
+    const inputValue = (document.getElementById("shortenLink") as HTMLInputElement).value;
     const result = this.validateInput(inputValue);
+
     if (result === "ok") {
       this.shortenLink(inputValue);
     }
-    else {
+    else if (inputValue) {
       document.getElementsByClassName('search-error')[0].innerHTML = '<span>' + result +'</span>';
     }
   }
 
-  shortenLink(input) {
+  shortenLink(input: string) {
     axios.post('https://rel.ink/api/links/', {
       url: input
     })
@@ -55,14 +68,17 @@ class Search extends Component {
     });
   }
 
-  validateInput(input) {
-    document.getElementById('shortenLink').classList.remove('redborder');
-    document.getElementsByClassName('search-error')[0].innerHTML = '<span></span>';
+  validateInput(input: string) {
+    const inputBox = document.getElementById('shortenLink');
+    if (inputBox){
+      inputBox.classList.remove('redborder');
+      document.getElementsByClassName('search-error')[0].innerHTML = '<span></span>';
     if (input.trim().length === 0) {
-      document.getElementById('shortenLink').classList.add('redborder');
+      inputBox.classList.add('redborder');
       return "Please add a link";
     }
-    else return "ok";
+      else return "ok";
+    }
   }
 
   render() {
@@ -83,11 +99,11 @@ class Search extends Component {
         </form>
         { this.state.links.length > 0 && 
           <ul className="generated-links">
-            {this.state.links.map(link =>(
+            {this.state.links.map(link => (
               <li key={link.id}>
                 <span className="longLink">{link.longLink}</span>
                 <span className="shortLink">{link.shortLink}</span>
-                <Button link={link.shortLink} id={link.id} onClick={() => this.copyToClipBoard(link.shortLink, link.id)} />
+                <Button link={link.shortLink} id={link.id} />
               </li>
             ))}
           </ul>

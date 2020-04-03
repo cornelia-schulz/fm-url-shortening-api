@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-function Links() {
+const Links:FunctionComponent = () => {
   return (
     <div className="links container">
       <h2>Boost your links today</h2>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-function Blurb() {
+const Blurb:FunctionComponent = () => {
   return (
     <div className="blurb container">
       <div className="blurb-wrapper">

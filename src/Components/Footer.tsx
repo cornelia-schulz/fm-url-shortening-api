@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Facebook } from '../assets/icon-facebook.svg';
 import { ReactComponent as Twitter } from '../assets/icon-twitter.svg';
 import { ReactComponent as Pinterest } from '../assets/icon-pinterest.svg';
 import { ReactComponent as Instagram } from '../assets/icon-instagram.svg';
 
-function Footer() {
+const Footer:FunctionComponent = () => {
   return (
     <footer className="footer container">
       <div className="footer-logo">
@@ -40,19 +40,19 @@ function Footer() {
       </div>
       <div className="footer-social">
         <a href="/">
-          <span class="sr-only">Link to Facebook</span>
+          <span className="sr-only">Link to Facebook</span>
           <Facebook className="social-icon" />
         </a>
         <a href="/">
-          <span class="sr-only">Link to Twitter</span>
+          <span className="sr-only">Link to Twitter</span>
           <Twitter className="social-icon" />
         </a>
         <a href="/">
-          <span class="sr-only">Link to Pinterest</span>
+          <span className="sr-only">Link to Pinterest</span>
           <Pinterest className="social-icon" />
         </a>
        <a href="/">
-         <span class="sr-only">Link to Instagram</span>
+         <span className="sr-only">Link to Instagram</span>
          <Instagram className="social-icon" />
        </a>
       </div>

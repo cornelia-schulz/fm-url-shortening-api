@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Search from './Search';
 
-function Statistics() {
+const Statistics:FunctionComponent = () => {
   return (
     <div className="statistics container">
       <Search />
